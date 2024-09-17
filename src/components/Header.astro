@@ -7,11 +7,6 @@ import { ModeToggle } from './ModeToggle';
 <header class="flex flex-row items-center justify-between px-[3rem] text-center bg-background text-foreground">
 	<h2 class="h-full text-2xl my-4"><a href="/">{SITE_TITLE}</a></h2>
 	<nav class="flex items-center justify-between gap-4">
-		<div class="flex gap-4">
-			<HeaderLink href="/">Home</HeaderLink>
-			<HeaderLink href="/blog">Blog</HeaderLink>
-			<HeaderLink href="/about">About</HeaderLink>
-		</div>
 		<ModeToggle client:load />
 		<div class="social-links">
 			<a href="https://github.com/withastro/astro" target="_blank">

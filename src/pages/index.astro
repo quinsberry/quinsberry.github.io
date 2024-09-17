@@ -10,31 +10,37 @@ const posts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueO
 
 <BasicLayout metadata={{ title: SITE_TITLE, description: SITE_DESCRIPTION }}>
 	<Header />
-	<main class="container m-auto">
-		<h1>Welcome to Astro</h1>
-		<section>
+	<main class="h-[calc(100%-64px)]">
+		<section class="mx-auto sm:px-6 max-w-4xl px-6">
+			<div class="h-10"></div>
 			<ul>
 				{
-					posts.map((post) => (
-						<li>
-							<a href={`/blog/${post.slug}/`}>
-								<img width={720} height={360} src={post.data.heroImage} alt="" />
-								<h4 class="title">{post.data.title}</h4>
-								<p class="date">
-									<time datetime={post.data.pubDate.toISOString()}>
-										{post.data.pubDate.toLocaleDateString('en-us', {
-											year: 'numeric',
-											month: 'short',
-											day: 'numeric',
-										})}
-									</time>
-								</p>
-							</a>
+					posts.map((post, idx) => (
+						<li class="px-4 cursor-pointer hover:bg-secondary">
+							<div
+								class:list={[
+									'border-b-2  border-b-secondary py-4',
+									{ 'border-none': posts.length - 1 === idx },
+								]}
+							>
+								<a href={`/blog/${post.slug}/`}>
+									<h4 class="mb-1 text-2xl font-bold text-foreground">{post.data.title}</h4>
+									<p class="text-lg text-foreground pb-2">{post.data.description}</p>
+									<p class="text-sm">
+										<time datetime={post.data.pubDate.toISOString()}>
+											{post.data.pubDate.toLocaleDateString('en-us', {
+												year: 'numeric',
+												month: 'short',
+												day: 'numeric',
+											})}
+										</time>
+									</p>
+								</a>
+							</div>
 						</li>
 					))
 				}
 			</ul>
 		</section>
 	</main>
-	<Footer />
 </BasicLayout>
