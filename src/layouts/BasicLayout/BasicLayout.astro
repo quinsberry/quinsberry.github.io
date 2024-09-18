@@ -24,6 +24,7 @@ const { metadata, i18n = { language: 'en', direction: 'ltr' } } = Astro.props;
 		<SiteVerification />
 		<Analytics /> -->
 		<BasicHead title={metadata.title} description={metadata.description} />
+		<BasicScripts />
 
 		<!-- Comment the line below to disable View Transitions -->
 		<ViewTransitions fallback="swap" />
@@ -32,7 +33,6 @@ const { metadata, i18n = { language: 'en', direction: 'ltr' } } = Astro.props;
 	<body class="h-screen">
 		<slot />
 
-		<BasicScripts />
 		<style is:global>
 			img {
 				content-visibility: auto;

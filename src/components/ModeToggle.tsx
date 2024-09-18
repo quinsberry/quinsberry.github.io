@@ -8,13 +8,14 @@ import {
 	DropdownMenuItem,
 	DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import type { Themes } from '@/consts';
 
 export function ModeToggle() {
-	const [theme, setThemeState] = React.useState<'theme-light' | 'dark' | 'system'>('theme-light');
+	const [theme, setThemeState] = React.useState<Themes>('light');
 
 	React.useEffect(() => {
 		const isDarkMode = document.documentElement.classList.contains('dark');
-		setThemeState(isDarkMode ? 'dark' : 'theme-light');
+		setThemeState(isDarkMode ? 'dark' : 'light');
 	}, []);
 
 	React.useEffect(() => {
@@ -33,7 +34,7 @@ export function ModeToggle() {
 				</Button>
 			</DropdownMenuTrigger>
 			<DropdownMenuContent align="end">
-				<DropdownMenuItem onClick={() => setThemeState('theme-light')}>Light</DropdownMenuItem>
+				<DropdownMenuItem onClick={() => setThemeState('light')}>Light</DropdownMenuItem>
 				<DropdownMenuItem onClick={() => setThemeState('dark')}>Dark</DropdownMenuItem>
 				<DropdownMenuItem onClick={() => setThemeState('system')}>System</DropdownMenuItem>
 			</DropdownMenuContent>

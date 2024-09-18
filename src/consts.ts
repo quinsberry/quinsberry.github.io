@@ -4,11 +4,10 @@
 export const SITE_TITLE = 'Astro Blog';
 export const SITE_DESCRIPTION = 'Welcome to my website!';
 
-
+export type Themes = 'light' | 'dark' | 'system';
 export const UI = {
-	theme: 'system', // Values: "system" | "light" | "dark" | "light:only" | "dark:only"
-} as const;
-
+	theme: 'system' as Themes,
+};
 
 interface I18N {
 	language: 'en';
