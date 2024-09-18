@@ -1,9 +1,9 @@
 ---
 import Header from '@/components/Header.astro';
-import Footer from '@/components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '@/consts';
 import BasicLayout from '@/layouts/BasicLayout/BasicLayout.astro';
 import { getCollection } from 'astro:content';
+import FormattedDate from '@/components/FormattedDate.astro';
 
 const posts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
@@ -16,23 +16,20 @@ const posts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueO
 			<ul>
 				{
 					posts.map((post, idx) => (
-						<li class="px-4 cursor-pointer hover:bg-secondary">
+						<li class=" px-4 cursor-pointer hover:bg-secondary rounded-lg">
 							<div
 								class:list={[
-									'border-b-2  border-b-secondary py-4',
-									{ 'border-none': posts.length - 1 === idx },
+									'border-y-[1px]  border-secondary py-4 my-[-1px]',
+									{ 'border-t-0 mt-0': idx === 0 },
+									{ 'border-b-0 mb-0': idx === posts.length - 1 },
 								]}
 							>
-								<a href={`/blog/${post.slug}/`}>
+								<a href={`/${post.slug}/`}>
 									<h4 class="mb-1 text-2xl font-bold text-foreground">{post.data.title}</h4>
 									<p class="text-lg text-foreground pb-2">{post.data.description}</p>
 									<p class="text-sm">
 										<time datetime={post.data.pubDate.toISOString()}>
-											{post.data.pubDate.toLocaleDateString('en-us', {
-												year: 'numeric',
-												month: 'short',
-												day: 'numeric',
-											})}
+											<FormattedDate date={post.data.pubDate} />
 										</time>
 									</p>
 								</a>
