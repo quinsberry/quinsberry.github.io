@@ -5,6 +5,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
+import { lazyImagesRehypePlugin, readingTimeRemarkPlugin, responsiveTablesRehypePlugin } from '@/lib/markdown-plugins';
 
 // https://astro.build/config
 export default defineConfig({
@@ -17,6 +18,10 @@ export default defineConfig({
 			applyBaseStyles: false,
 		}),
 	],
+	markdown: {
+		remarkPlugins: [readingTimeRemarkPlugin],
+		rehypePlugins: [responsiveTablesRehypePlugin, lazyImagesRehypePlugin],
+	},
 	vite: {
 		resolve: {
 			alias: {
