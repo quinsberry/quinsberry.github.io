@@ -15,6 +15,12 @@ $ bun test                      # run tests
 $ bunx cowsay 'Hello, world!'   # execute a package
 ```
 
+```ts
+console.log('hewwo') // [\!code --]
+console.log('hello') // [\!code ++]
+console.log('goodbye')
+```
+
 ```typescript
 function add(a: number, b: number): number {
 	return a + b;

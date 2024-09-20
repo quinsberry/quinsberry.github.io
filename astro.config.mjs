@@ -6,6 +6,7 @@ import sitemap from '@astrojs/sitemap';
 import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 import partytown from '@astrojs/partytown';
+import { transformerNotationDiff, transformerNotationHighlight } from '@shikijs/transformers';
 
 import { lazyImagesRehypePlugin, readingTimeRemarkPlugin, responsiveTablesRehypePlugin } from '@/lib/markdown-plugins';
 import { ExternalScripts } from '@/consts';
@@ -23,6 +24,15 @@ export default defineConfig({
 		ifPartytown(),
 	],
 	markdown: {
+		syntaxHighlight: 'shiki',
+		shikiConfig: {
+			theme: 'rose-pine',
+			langs: [],
+			transformers: [
+				transformerNotationDiff(),
+				transformerNotationHighlight(),
+			],
+		},
 		remarkPlugins: [readingTimeRemarkPlugin],
 		rehypePlugins: [responsiveTablesRehypePlugin, lazyImagesRehypePlugin],
 	},

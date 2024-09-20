@@ -70,3 +70,41 @@
 			'calt' 1;
 	}
 }
+
+.astro-code {
+	.line {
+		&.highlighted,
+		&.diff {
+			@apply inline-block w-full pl-4 pr-5;
+		}
+		&.highlighted {
+			@apply border-neutral-500 bg-neutral-800;
+		}
+		&.line {
+			@apply pl-6;
+			&:last-child {
+				@apply pl-0;
+			}
+		}
+		&.diff {
+			&.add,
+			&.remove {
+				span:first-child::before {
+					@apply -ml-4 inline-flex w-4;
+				}
+			}
+			&.add {
+				@apply bg-green-600/20 before:text-green-500;
+				span:first-child::before {
+					@apply text-green-500 content-["+"];
+				}
+			}
+			&.remove {
+				@apply bg-red-500/20 opacity-70 *:!text-neutral-400 before:text-red-500;
+				span:first-child::before {
+					@apply text-red-300 content-["-"];
+				}
+			}
+		}
+	}
+}
