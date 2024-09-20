@@ -5,7 +5,10 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
+import partytown from '@astrojs/partytown';
+
 import { lazyImagesRehypePlugin, readingTimeRemarkPlugin, responsiveTablesRehypePlugin } from '@/lib/markdown-plugins';
+import { ExternalScripts } from '@/consts';
 
 // https://astro.build/config
 export default defineConfig({
@@ -17,6 +20,7 @@ export default defineConfig({
 		tailwind({
 			applyBaseStyles: false,
 		}),
+		ifPartytown(),
 	],
 	markdown: {
 		remarkPlugins: [readingTimeRemarkPlugin],
@@ -30,3 +34,12 @@ export default defineConfig({
 		},
 	},
 });
+
+function ifPartytown() {
+	const shouldAddPartytown = Object.values(ExternalScripts).some((item) => !!item.partytown);
+	return shouldAddPartytown
+		? partytown({
+				config: { forward: ['dataLayer.push'] },
+			})
+		: null;
+}

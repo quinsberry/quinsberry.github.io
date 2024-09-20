@@ -4,6 +4,8 @@ import '@/styles/global.css';
 import { ViewTransitions } from 'astro:transitions';
 import BasicScripts from './BasicScripts.astro';
 import BasicHead, { type Props as BasicHeadProps } from './BasicHead.astro';
+import { ExternalScripts, I18N } from '@/consts';
+import AstroAnalytics from '@/lib/analytics/AstroAnalytics.astro';
 
 interface Props {
 	i18n?: {
@@ -13,13 +15,15 @@ interface Props {
 	metadata: BasicHeadProps;
 }
 
-const { metadata, i18n = { language: 'en', direction: 'ltr' } } = Astro.props;
----
+const { metadata, i18n = { language: I18N.language, direction: I18N.textDirection } } = Astro.props;
 
+const gaPartytown = ExternalScripts.googleAnalytics.partytown;
+const gaId = ExternalScripts.googleAnalytics.id;
+---
 
 <html lang={i18n.language} dir={i18n.direction}>
 	<head>
-		<!-- <Analytics /> -->
+		{gaId && <AstroAnalytics id={gaId} partytown={gaPartytown} />}
 		<BasicHead title={metadata.title} description={metadata.description} />
 		<BasicScripts />
 

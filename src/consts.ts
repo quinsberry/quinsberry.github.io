@@ -14,3 +14,10 @@ export const I18N: I18N = {
 	language: 'en',
 	textDirection: 'ltr',
 };
+
+export const ExternalScripts = {
+	googleAnalytics: {
+		id: process.env.GOOGLE_ANALYTICS_ID,
+		partytown: true,
+	},
+};
