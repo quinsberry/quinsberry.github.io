@@ -19,14 +19,10 @@ const { metadata, i18n = { language: 'en', direction: 'ltr' } } = Astro.props;
 
 <html lang={i18n.language} dir={i18n.direction}>
 	<head>
-		<!-- <CommonMeta />
-		<Favicons />
-		<SiteVerification />
-		<Analytics /> -->
+		<!-- <Analytics /> -->
 		<BasicHead title={metadata.title} description={metadata.description} />
 		<BasicScripts />
 
-		<!-- Comment the line below to disable View Transitions -->
 		<ViewTransitions fallback="swap" />
 	</head>
 
