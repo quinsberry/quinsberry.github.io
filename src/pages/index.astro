@@ -11,7 +11,7 @@ const posts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueO
 <BasicLayout metadata={{ title: SITE_TITLE, description: SITE_DESCRIPTION }}>
 	<Header />
 	<main class="h-[calc(100%-64px)]">
-		<section class="mx-auto sm:px-6 max-w-4xl px-6">
+		<section class="mx-auto lg:px-12 max-w-screen-lg">
 			<div class="h-10"></div>
 			<ul>
 				{

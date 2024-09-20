@@ -16,41 +16,43 @@ const { title, description, pubDate, updatedDate, heroImage, readingTime } = Ast
 
 <BasicLayout metadata={{ title: title, description: description }}>
 	<Header />
-	<main class="mx-auto sm:px-6 max-w-4xl px-4 py-6 sm:py-12">
-		<div class="mb-8">
-			<h1 class="font-extrabold text-4xl w-full">{title}</h1>
-			<hr class="mt-2 mb-1" />
-			<div class="flex items-center">
-				<span class="m-0 font-normal text-muted-foreground">
-					<FormattedDate date={pubDate} />
-				</span>
-				{
-					updatedDate && (
-						<>
-							<span class="px-2"> · </span>
-							<div class="italic text-muted-foreground">
-								Updated <FormattedDate date={updatedDate} />
-							</div>
-						</>
-					)
-				}
+	<main class="px-4 py-6 sm:py-12">
+		<section class="mx-auto max-w-screen-md">
+			<div class="mb-8">
+				<h1 class="font-extrabold text-4xl w-full">{title}</h1>
+				<hr class="mt-2 mb-1" />
+				<div class="flex items-center">
+					<span class="m-0 font-normal text-muted-foreground">
+						<FormattedDate date={pubDate} />
+					</span>
+					{
+						updatedDate && (
+							<>
+								<span class="px-2"> · </span>
+								<div class="italic text-muted-foreground">
+									Updated <FormattedDate date={updatedDate} />
+								</div>
+							</>
+						)
+					}
 
-				<span class="px-2"> · </span>
-				<Clock className="w-4 h-4 mr-1 text-muted-foreground" />
-				<span class="m-0 font-normal text-muted-foreground">
-					{readingTime} min
-				</span>
+					<span class="px-2"> · </span>
+					<Clock className="w-4 h-4 mr-1 text-muted-foreground" />
+					<span class="m-0 font-normal text-muted-foreground">
+						{readingTime} min
+					</span>
+				</div>
 			</div>
-		</div>
-		<article
-			class:list={[
-				'mx-auto px-6 sm:px-6 max-w-3xl prose prose-md lg:prose-xl dark:prose-invert prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-primary prose-img:rounded-md prose-img:shadow-lg mt-8 prose-headings:scroll-mt-[80px] prose-li:my-0',
-				'prose-code-extention prose-code:text-secondary-foreground prose-code:font-light prose-code:border-solid prose-code:border-[1px] prose-code:rounded-sm prose-code:py-[2px] prose-code:px-[3px]',
-				'prose-code:bg-gray-200 prose-code:border-gray-300 dark:prose-code:bg-gray-700 dark:prose-code:border-gray-700',
-			]}
-		>
-			<slot />
-		</article>
+			<article
+				class:list={[
+					'prose prose-md lg:prose-xl w-full max-w-screen-md dark:prose-invert prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-primary prose-img:rounded-md prose-img:shadow-lg mt-8 prose-headings:scroll-mt-[80px] prose-li:my-0',
+					'prose-code-extention prose-code:text-secondary-foreground prose-code:font-light prose-code:border-solid prose-code:border-[1px] prose-code:rounded-sm prose-code:py-[2px] prose-code:px-[3px]',
+					'prose-code:bg-gray-200 prose-code:border-gray-300 dark:prose-code:bg-gray-700 dark:prose-code:border-gray-700',
+				]}
+			>
+				<slot />
+			</article>
+		</section>
 	</main>
 </BasicLayout>
 
