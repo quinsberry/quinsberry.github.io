@@ -1,4 +1,5 @@
 import tailwindAnimate from 'tailwindcss-animate';
+import tailwindTypography from '@tailwindcss/typography';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -69,5 +70,5 @@ export default {
 			'accordion-up': 'accordion-up 0.2s ease-out',
 		},
 	},
-	plugins: [tailwindAnimate],
+	plugins: [tailwindAnimate, tailwindTypography],
 };
