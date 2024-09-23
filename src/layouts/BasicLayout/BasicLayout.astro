@@ -25,12 +25,11 @@ const gaId = ExternalScripts.googleAnalytics.id;
 	<head>
 		{gaId && <AstroAnalytics id={gaId} partytown={gaPartytown} />}
 		<BasicHead title={metadata.title} description={metadata.description} />
-		<BasicScripts />
-
 		<ViewTransitions fallback="swap" />
+		<BasicScripts />
 	</head>
 
-	<body class="h-screen">
+	<body>
 		<slot />
 
 		<style is:global>

@@ -4,12 +4,12 @@ import { ModeToggle } from './ModeToggle';
 import { RssButton } from './RssButton';
 ---
 
-<header class="flex flex-row items-center justify-between px-4 sm:px-12 text-center bg-background text-foreground">
+<header class="flex flex-row items-center justify-between px-4 sm:px-12 text-center text-foreground">
 	<h2 class="h-full text-2xl my-4"><a href="/">{SITE_TITLE}</a></h2>
 	<nav class="flex items-center justify-between gap-4">
 		<div>
-			<ModeToggle client:load />
-			<RssButton href="/rss.xml" />
+			<ModeToggle transition:persist client:load />
+			<RssButton transition:persist client:load href="/rss.xml" />
 		</div>
 		<div class="social-links">
 			<a href="https://github.com/quinsberry" target="_blank">
