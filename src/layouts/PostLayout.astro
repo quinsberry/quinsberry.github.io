@@ -47,8 +47,8 @@ const { title, description, pubDate, updatedDate, heroImage, readingTime } = Ast
 				class:list={[
 					'prose prose-md lg:prose-xl w-full max-w-screen-md dark:prose-invert prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-primary prose-img:rounded-md prose-img:shadow-lg mt-8 prose-headings:scroll-mt-[80px] prose-li:my-0',
 					'prose-pre:px-0 prose-pre:[&>.line]:px-2',
-					'prose-code-extention prose-code:text-secondary-foreground prose-code:font-light prose-code:border-solid prose-code:border-[1px] prose-code:rounded-sm prose-code:py-[2px] prose-code:px-[3px]',
-					'prose-code:bg-gray-200 prose-code:border-gray-300 dark:prose-code:bg-gray-700 dark:prose-code:border-gray-700',
+					'prose-code-extention prose-inline-code:text-secondary-foreground prose-inline-code:font-light prose-inline-code:border-solid prose-inline-code:border-[1px] prose-inline-code:rounded-sm prose-inline-code:py-[2px] prose-inline-code:px-[3px] prose-inline-code:before:content-none prose-inline-code:after:content-none',
+					'prose-inline-code:bg-gray-200 prose-inline-code:border-gray-300 dark:prose-inline-code:bg-gray-700 dark:prose-inline-code:border-gray-700',
 				]}
 			>
 				<slot />
@@ -56,22 +56,3 @@ const { title, description, pubDate, updatedDate, heroImage, readingTime } = Ast
 		</section>
 	</main>
 </BasicLayout>
-
-<style>
-	.prose-code-extention {
-		code {
-			&:after {
-				content: none;
-			}
-			&:before {
-				content: none;
-			}
-		}
-		pre > code {
-			background-color: unset;
-			border: none;
-			border-color: unset;
-			padding: unset;
-		}
-	}
-</style>
