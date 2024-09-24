@@ -19,7 +19,7 @@ const __dirname = path.dirname(__filename);
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://example.com',
+	site: 'https://ekolesnyk.netlify.app',
 	prefetch: true,
 	integrations: [
 		mdx(),
