@@ -26,12 +26,8 @@ export default defineConfig({
 	markdown: {
 		syntaxHighlight: 'shiki',
 		shikiConfig: {
-			theme: 'rose-pine',
-			langs: [],
-			transformers: [
-				transformerNotationDiff(),
-				transformerNotationHighlight(),
-			],
+			theme: 'css-variables',
+			transformers: [transformerNotationDiff(), transformerNotationHighlight()],
 		},
 		remarkPlugins: [readingTimeRemarkPlugin],
 		rehypePlugins: [responsiveTablesRehypePlugin, lazyImagesRehypePlugin],
