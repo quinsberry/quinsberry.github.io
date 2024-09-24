@@ -1,14 +1,14 @@
 ---
 import { SITE_TITLE } from '@/consts';
-import { ModeToggle } from './ModeToggle';
 import { RssButton } from './RssButton';
+import ThemeIcon from './ThemeIcon.astro';
 ---
 
 <header class="flex flex-row items-center justify-between px-4 sm:px-12 text-center text-foreground">
 	<h2 class="h-full text-2xl my-4"><a href="/">{SITE_TITLE}</a></h2>
 	<nav class="flex items-center justify-between gap-4">
 		<div>
-			<ModeToggle transition:persist client:load />
+			<ThemeIcon />
 			<RssButton transition:persist client:load href="/rss.xml" />
 		</div>
 		<div class="social-links">
