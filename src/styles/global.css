@@ -70,41 +70,50 @@
 			'calt' 1;
 	}
 }
-
-.astro-code {
-	.line {
-		&.highlighted,
-		&.diff {
-			@apply inline-block w-full pl-4 pr-5;
-		}
-		&.highlighted {
-			@apply border-neutral-500 bg-neutral-800;
-		}
-		&.line {
-			@apply pl-6;
-			&:last-child {
-				@apply pl-0;
-			}
-		}
-		&.diff {
-			&.add,
-			&.remove {
-				span:first-child::before {
-					@apply -ml-4 inline-flex w-4;
-				}
-			}
-			&.add {
-				@apply bg-green-600/20 before:text-green-500;
-				span:first-child::before {
-					@apply text-green-500 content-["+"];
-				}
-			}
-			&.remove {
-				@apply bg-red-500/20 opacity-70 *:!text-neutral-400 before:text-red-500;
-				span:first-child::before {
-					@apply text-red-300 content-["-"];
-				}
-			}
-		}
-	}
-}
+:root {
+	--astro-code-color-text: #F8F8F2; /* bun color */
+	--astro-code-color-background: #282A36; /* bun color */
+	--astro-code-token-constant: #F8F8F2; /* bun color */
+	--astro-code-token-string: #F8F8F2; /* bun color */
+	--astro-code-token-comment: #6272A4; /* bun color */
+	--astro-code-token-keyword: #FF79C6; /* bun color */
+	--astro-code-token-parameter: #FFB86C; /* bun color */
+	--astro-code-token-function: #50FA7B; /* bun color */
+	--astro-code-token-string-expression: #F1FA8C; /* bun color */
+	--astro-code-token-punctuation: #c792e9;
+	--astro-code-token-link: #79b8ff;
+  
+	/* Only required if using lang: 'ansi' */
+	--astro-code-color-ansi-black: #000000;
+	--astro-code-color-ansi-black-dim: #00000080;
+	--astro-code-color-ansi-red: #bb0000;
+	--astro-code-color-ansi-red-dim: #bb000080;
+	--astro-code-color-ansi-green: #00bb00;
+	--astro-code-color-ansi-green-dim: #00bb0080;
+	--astro-code-color-ansi-yellow: #bbbb00;
+	--astro-code-color-ansi-yellow-dim: #bbbb0080;
+	--astro-code-color-ansi-blue: #0000bb;
+	--astro-code-color-ansi-blue-dim: #0000bb80;
+	--astro-code-color-ansi-magenta: #ff00ff;
+	--astro-code-color-ansi-magenta-dim: #ff00ff80;
+	--astro-code-color-ansi-cyan: #00bbbb;
+	--astro-code-color-ansi-cyan-dim: #00bbbb80;
+	--astro-code-color-ansi-white: #eeeeee;
+	--astro-code-color-ansi-white-dim: #eeeeee80;
+	--astro-code-color-ansi-bright-black: #555555;
+	--astro-code-color-ansi-bright-black-dim: #55555580;
+	--astro-code-color-ansi-bright-red: #ff5555;
+	--astro-code-color-ansi-bright-red-dim: #ff555580;
+	--astro-code-color-ansi-bright-green: #00ff00;
+	--astro-code-color-ansi-bright-green-dim: #00ff0080;
+	--astro-code-color-ansi-bright-yellow: #ffff55;
+	--astro-code-color-ansi-bright-yellow-dim: #ffff5580;
+	--astro-code-color-ansi-bright-blue: #5555ff;
+	--astro-code-color-ansi-bright-blue-dim: #5555ff80;
+	--astro-code-color-ansi-bright-magenta: #ff55ff;
+	--astro-code-color-ansi-bright-magenta-dim: #ff55ff80;
+	--astro-code-color-ansi-bright-cyan: #55ffff;
+	--astro-code-color-ansi-bright-cyan-dim: #55ffff80;
+	--astro-code-color-ansi-bright-white: #ffffff;
+	--astro-code-color-ansi-bright-white-dim: #ffffff80;
+  }

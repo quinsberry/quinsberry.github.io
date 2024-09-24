@@ -46,9 +46,20 @@ const { title, description, pubDate, updatedDate, heroImage, readingTime } = Ast
 			<article
 				class:list={[
 					'prose prose-md lg:prose-xl w-full max-w-screen-md dark:prose-invert prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-primary prose-img:rounded-md prose-img:shadow-lg mt-8 prose-headings:scroll-mt-[80px] prose-li:my-0',
-					'prose-pre:px-0 prose-pre:[&>.line]:px-2',
-					'prose-code-extention prose-inline-code:text-secondary-foreground prose-inline-code:font-light prose-inline-code:border-solid prose-inline-code:border-[1px] prose-inline-code:rounded-sm prose-inline-code:py-[2px] prose-inline-code:px-[3px] prose-inline-code:before:content-none prose-inline-code:after:content-none',
-					'prose-inline-code:bg-gray-200 prose-inline-code:border-gray-300 dark:prose-inline-code:bg-gray-700 dark:prose-inline-code:border-gray-700',
+					'prose-h2:[&_code]:font-bold',
+
+					// inline code
+					'prose-inline-code:text-secondary-foreground prose-inline-code:font-light prose-inline-code:border-solid prose-inline-code:border-[1px] prose-inline-code:rounded-sm prose-inline-code:py-[2px] prose-inline-code:px-[3px] prose-inline-code:before:content-none prose-inline-code:after:content-none',
+					'prose-inline-code:bg-gray-200 prose-inline-code:border-gray-300 dark:prose-inline-code:bg-gray-700 dark:prose-inline-code:border-gray-700 prose-inline-code:opacity-90',
+					// code block
+					'prose-pre:px-0 prose-code:font-light prose-code-block:flex prose-code-block:flex-col',
+					// code block line
+					'prose-code-block-line:w-full prose-code-block-line:px-6',
+					// line.diff.remove
+					// 'prose-code-block-line:[.remove]:bg-red-500',
+					// 'prose-code-block-line:[.diff]:bg-red-500',
+					'',
+					// 'prose-code-block-line:bg-red-400',
 				]}
 			>
 				<slot />
@@ -56,3 +67,70 @@ const { title, description, pubDate, updatedDate, heroImage, readingTime } = Ast
 		</section>
 	</main>
 </BasicLayout>
+
+<style is:global>
+	/* .line {
+		display: inline;
+		padding-bottom: 0;
+	}
+	.diff {
+		display: inline-block;
+		width: 100vw;
+		margin: 0 -12px;
+		padding: 0 12px;
+	}
+	.diff.add {
+		background-color: #0505;
+	}
+	.diff.remove {
+		background-color: #8005;
+	}
+	.diff:before {
+		position: absolute;
+		left: 40px;
+	}
+	.has-focused .line {
+		filter: blur(0.095rem);
+	}
+	.has-focused .focused {
+		filter: blur(0);
+	} */
+
+	/* .astro-code {
+	.line {
+		&.highlighted,
+		&.diff {
+			@apply inline-block w-full pl-4 pr-5;
+		}
+		&.highlighted {
+			@apply border-neutral-500 bg-neutral-800;
+		}
+		&.line {
+			@apply pl-6;
+			&:last-child {
+				@apply pl-0;
+			}
+		}
+		&.diff {
+			&.add,
+			&.remove {
+				span:first-child::before {
+					@apply -ml-4 inline-flex w-4;
+				}
+			}
+			&.add {
+				@apply bg-green-600/20 before:text-green-500;
+				span:first-child::before {
+					@apply text-green-500 content-["+"];
+				}
+			}
+			&.remove {
+				@apply bg-red-500/20 opacity-70 *:!text-neutral-400 before:text-red-500;
+				span:first-child::before {
+					@apply text-red-300 content-["-"];
+				}
+			}
+		}
+	}
+} */
+</style>

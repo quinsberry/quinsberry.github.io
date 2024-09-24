@@ -1,5 +1,6 @@
 import tailwindAnimate from 'tailwindcss-animate';
 import tailwindTypography from '@tailwindcss/typography';
+import plugin from 'tailwindcss/plugin';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -70,5 +71,13 @@ export default {
 			'accordion-up': 'accordion-up 0.2s ease-out',
 		},
 	},
-	plugins: [tailwindAnimate, tailwindTypography],
+	plugins: [
+		tailwindAnimate,
+		tailwindTypography,
+		plugin(({ addVariant }) => {
+			addVariant('prose-inline-code', '&.prose :where(:not(pre)>code):not(:where([class~="not-prose"] *))');
+			addVariant('prose-code-block', '&.prose :where(pre>code):not(:where([class~="not-prose"] *))');
+			addVariant('prose-code-block-line', '&.prose :where(code>span.line):not(:where([class~="not-prose"] *))');
+		}),
+	],
 };
