@@ -2,7 +2,6 @@
 import '@/styles/global.css';
 
 import { ViewTransitions } from 'astro:transitions';
-import BasicScripts from './BasicScripts.astro';
 import BasicHead, { type Props as BasicHeadProps } from './BasicHead.astro';
 import { ExternalScripts, I18N } from '@/consts';
 import AstroAnalytics from '@/lib/analytics/AstroAnalytics.astro';
@@ -26,7 +25,6 @@ const gaId = ExternalScripts.googleAnalytics.id;
 		{gaId && <AstroAnalytics id={gaId} partytown={gaPartytown} />}
 		<BasicHead title={metadata.title} description={metadata.description} />
 		<ViewTransitions fallback="swap" />
-		<BasicScripts />
 	</head>
 
 	<body>
