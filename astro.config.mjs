@@ -1,5 +1,6 @@
 // @ts-check
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
@@ -8,12 +9,18 @@ import tailwind from '@astrojs/tailwind';
 import partytown from '@astrojs/partytown';
 import { transformerNotationDiff, transformerNotationHighlight } from '@shikijs/transformers';
 
-import { lazyImagesRehypePlugin, readingTimeRemarkPlugin, responsiveTablesRehypePlugin } from '@/lib/markdown-plugins';
-import { ExternalScripts } from '@/consts';
+import { lazyImagesRehypePlugin, readingTimeRemarkPlugin, responsiveTablesRehypePlugin } from './src/lib/markdown-plugins';
+import { ExternalScripts } from './src/consts';
+
+
+// Convert import.meta.url to a file path
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://example.com',
+	prefetch: true,
 	integrations: [
 		mdx(),
 		sitemap(),
