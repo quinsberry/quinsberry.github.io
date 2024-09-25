@@ -8,8 +8,8 @@ export const SITE = {
 export type Themes = 'light' | 'dark' | 'system';
 export const UI = {
 	theme: 'system' as Themes,
-	darkBackground: '#fff',
-	lightBackground: '#000',
+	lightBackground: '#fff',
+	darkBackground: '#000',
 };
 
 interface I18N {
