@@ -1,7 +1,7 @@
 import type { RobotsTxtOptions } from 'astro-robots-txt';
 import { SITE } from './src/consts';
 
-const robotsConfig: RobotsTxtOptions = {
+export const robotsConfig: RobotsTxtOptions = {
 	policy: [
 		{
 			userAgent: '*',
@@ -11,5 +11,3 @@ const robotsConfig: RobotsTxtOptions = {
 	],
 	sitemapBaseFileName: 'sitemap-index', // default 'sitemap-index'
 };
-
-export default robotsConfig;
