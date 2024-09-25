@@ -7,6 +7,7 @@ import sitemap from '@astrojs/sitemap';
 import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 import partytown from '@astrojs/partytown';
+import robotsTxt from 'astro-robots-txt';
 import { transformerNotationDiff, transformerNotationHighlight, transformerNotationFocus } from '@shikijs/transformers';
 
 import {
@@ -15,6 +16,7 @@ import {
 	responsiveTablesRehypePlugin,
 } from './src/lib/markdown-plugins';
 import { ExternalScripts } from './src/consts';
+import robotsConfig from './robots.config';
 
 // Convert import.meta.url to a file path
 const __filename = fileURLToPath(import.meta.url);
@@ -27,6 +29,7 @@ export default defineConfig({
 	integrations: [
 		mdx(),
 		sitemap(),
+		robotsTxt(robotsConfig),
 		react(),
 		tailwind({
 			applyBaseStyles: false,

@@ -2,6 +2,7 @@ export const SITE = {
 	title: "Eugene's Blog",
 	description: 'A blog by Eugene Kolesnyk',
 	keywords: 'eugenekolesnyk, quinsberry, ekolesnyk',
+	disableIndexing: false,
 };
 
 export type Themes = 'light' | 'dark' | 'system';
