@@ -74,71 +74,40 @@ const { title, description, pubDate, updatedDate, heroImage, readingTime } = Ast
 		span.line {
 			padding-left: 1.5rem;
 		}
-	}
-
-	.diff {
-		&:before {
-			position: absolute;
-			left: 8px;
-			color: #ffffff;
-			opacity: 0.5;
-			font-size: 13px;
-		}
-		&.add {
-			background-color: #00ff0020;
+		.diff {
 			&:before {
-				content: '+';
-			}
-		}
-		&.remove {
-			background-color: #ff000020;
-			&:before {
-				content: '-';
-			}
-		}
-	}
-	.has-focused .line {
-		filter: blur(0.095rem);
-	}
-	.has-focused .focused {
-		filter: blur(0);
-	}
-
-	/* .astro-code {
-	.line {
-		&.highlighted,
-		&.diff {
-			@apply inline-block w-full pl-4 pr-5;
-		}
-		&.highlighted {
-			@apply border-neutral-500 bg-neutral-800;
-		}
-		&.line {
-			@apply pl-6;
-			&:last-child {
-				@apply pl-0;
-			}
-		}
-		&.diff {
-			&.add,
-			&.remove {
-				span:first-child::before {
-					@apply -ml-4 inline-flex w-4;
-				}
+				position: absolute;
+				left: 8px;
+				color: #ffffff;
+				opacity: 0.5;
+				font-size: 13px;
 			}
 			&.add {
-				@apply bg-green-600/20 before:text-green-500;
-				span:first-child::before {
-					@apply text-green-500 content-["+"];
+				background-color: #00ff0020;
+				&:before {
+					content: '+';
 				}
 			}
 			&.remove {
-				@apply bg-red-500/20 opacity-70 *:!text-neutral-400 before:text-red-500;
-				span:first-child::before {
-					@apply text-red-300 content-["-"];
+				background-color: #ff000020;
+				&:before {
+					content: '-';
 				}
 			}
 		}
 	}
-} */
+	.has-focused {
+		.line {
+			filter: blur(0.095rem);
+		}
+		.focused {
+			filter: blur(0);
+		}
+	}
+
+	.has-highlighted {
+		.highlighted {
+			background-color: rgba(101, 117, 133, .26);
+		}
+	}
 </style>
