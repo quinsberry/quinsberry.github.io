@@ -81,7 +81,7 @@
 	--astro-code-token-parameter: #FFB86C; /* bun color */
 	--astro-code-token-function: #50FA7B; /* bun color */
 	--astro-code-token-string-expression: #F1FA8C; /* bun color */
-	--astro-code-token-punctuation: #c792e9;
+	--astro-code-token-punctuation: #F8F8F2; /* bun color */
 	--astro-code-token-link: #79b8ff;
   
 	/* Only required if using lang: 'ansi' */

@@ -7,11 +7,14 @@ import sitemap from '@astrojs/sitemap';
 import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 import partytown from '@astrojs/partytown';
-import { transformerNotationDiff, transformerNotationHighlight } from '@shikijs/transformers';
+import { transformerNotationDiff, transformerNotationHighlight, transformerNotationFocus } from '@shikijs/transformers';
 
-import { lazyImagesRehypePlugin, readingTimeRemarkPlugin, responsiveTablesRehypePlugin } from './src/lib/markdown-plugins';
+import {
+	lazyImagesRehypePlugin,
+	readingTimeRemarkPlugin,
+	responsiveTablesRehypePlugin,
+} from './src/lib/markdown-plugins';
 import { ExternalScripts } from './src/consts';
-
 
 // Convert import.meta.url to a file path
 const __filename = fileURLToPath(import.meta.url);
@@ -34,7 +37,7 @@ export default defineConfig({
 		syntaxHighlight: 'shiki',
 		shikiConfig: {
 			theme: 'css-variables',
-			transformers: [transformerNotationDiff(), transformerNotationHighlight()],
+			transformers: [transformerNotationDiff(), transformerNotationHighlight(), transformerNotationFocus()],
 		},
 		remarkPlugins: [readingTimeRemarkPlugin],
 		rehypePlugins: [responsiveTablesRehypePlugin, lazyImagesRehypePlugin],

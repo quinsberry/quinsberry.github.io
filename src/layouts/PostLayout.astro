@@ -57,8 +57,8 @@ const { title, description, pubDate, updatedDate, heroImage, readingTime } = Ast
 					// code block line
 					'prose-code-block-line:w-full prose-code-block-line:px-4',
 					// line.diff.remove
-					// 'prose-code-block-line:[.remove]:bg-red-500',
-					// 'prose-code-block-line:[.diff]:bg-red-500',
+					'prose-code-block-line:[:where(line.remove)]:bg-red-500',
+					'prose-code-block-line:[.diff]:bg-red-500',
 					'',
 					// 'prose-code-block-line:bg-red-400',
 				]}
@@ -70,32 +70,39 @@ const { title, description, pubDate, updatedDate, heroImage, readingTime } = Ast
 </BasicLayout>
 
 <style is:global>
-	/* .line {
-		display: inline;
-		padding-bottom: 0;
+	.has-diff {
+		span.line {
+			padding-left: 1.5rem;
+		}
 	}
+
 	.diff {
-		display: inline-block;
-		width: 100vw;
-		margin: 0 -12px;
-		padding: 0 12px;
-	}
-	.diff.add {
-		background-color: #0505;
-	}
-	.diff.remove {
-		background-color: #8005;
-	}
-	.diff:before {
-		position: absolute;
-		left: 40px;
+		&:before {
+			position: absolute;
+			left: 8px;
+			color: #ffffff;
+			opacity: 0.5;
+			font-size: 13px;
+		}
+		&.add {
+			background-color: #00ff0020;
+			&:before {
+				content: '+';
+			}
+		}
+		&.remove {
+			background-color: #ff000020;
+			&:before {
+				content: '-';
+			}
+		}
 	}
 	.has-focused .line {
 		filter: blur(0.095rem);
 	}
 	.has-focused .focused {
 		filter: blur(0);
-	} */
+	}
 
 	/* .astro-code {
 	.line {
