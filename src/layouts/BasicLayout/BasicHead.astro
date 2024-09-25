@@ -1,14 +1,26 @@
 ---
+import { SITE, I18N, UI } from '@/consts';
+
 export interface Props {
-	title: string;
-	description: string;
+	isArticle: boolean;
+	title?: string;
+	description?: string;
+	keywords?: string;
+	locale?: string;
 	image?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const googleSiteVerificationId = process.env.GOOGLE_SITE_VERIFICATION_ID;
 
-const { title, description, image = '/blog-placeholder.jpg' } = Astro.props;
+const {
+	title = SITE.title,
+	description = SITE.title,
+	image = '/blog-placeholder.jpg',
+	isArticle,
+	keywords = SITE.keywords,
+	locale = I18N.language,
+} = Astro.props;
 ---
 
 <!-- Global Metadata -->
@@ -17,10 +29,16 @@ const { title, description, image = '/blog-placeholder.jpg' } = Astro.props;
 <meta name="generator" content={Astro.generator} />
 
 <!-- Favicons -->
-<link rel="shortcut icon" href={'/favicons/favicon.ico'} />
+<link rel="shortcut icon" href="/favicons/favicon.ico" />
 <link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
-<link rel="mask-icon" href="/favicons/favicon.svg" color="#8D46E7" />
+<link rel="mask-icon" href="/favicons/favicon.svg" />
 <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png" />
+
+<!-- Theme Colors -->
+<meta name="theme-color" media="(prefers-color-scheme: light)" content={UI.lightBackground} />
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content={UI.darkBackground} />
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
@@ -29,19 +47,22 @@ const { title, description, image = '/blog-placeholder.jpg' } = Astro.props;
 <link rel="alternate" type="application/rss+xml" title={title} href={new URL('rss.xml', Astro.site)} />
 
 <!-- Sitemap -->
-<link rel="sitemap" href="/sitemap-index.xml" />
+<link rel="sitemap" href="/sitemap-index.xml" type="application/xml" />
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+<meta name="keywords" content={keywords} />
 
 <!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
+<meta property="og:type" content={isArticle ? 'article' : 'website'} />
 <meta property="og:url" content={Astro.url} />
+<meta property="og:locale" content={locale} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:image:width" content="400" />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
@@ -49,5 +70,12 @@ const { title, description, image = '/blog-placeholder.jpg' } = Astro.props;
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
+<meta property="twitter:image:alt" content={title} />
+
+<!-- Web App -->
+<meta name="apple-mobile-web-app-title" content={SITE.title} />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="application-name" content={SITE.title} />
+<meta name="msapplication-TileColor" content={UI.darkBackground} />
 
 {googleSiteVerificationId && <meta name="google-site-verification" content={googleSiteVerificationId} />}

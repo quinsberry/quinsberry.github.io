@@ -1,11 +1,11 @@
 ---
-import { SITE_TITLE } from '@/consts';
+import { SITE } from '@/consts';
 import ThemeIcon from './ThemeIcon.astro';
 import RssIcon from './RssIcon.astro';
 ---
 
 <header class="flex flex-row items-center justify-between px-4 sm:px-12 text-center text-foreground">
-	<h2 class="h-full text-3xl my-4 font-bold"><a href="/">{SITE_TITLE}</a></h2>
+	<h2 class="h-full text-3xl my-4 font-bold"><a href="/">{SITE.title}</a></h2>
 	<nav class="flex items-center justify-between gap-4">
 		<div class="flex">
 			<ThemeIcon />

@@ -4,17 +4,19 @@ import FormattedDate from '../components/FormattedDate.astro';
 import BasicLayout from './BasicLayout/BasicLayout.astro';
 import Header from '@/components/Header.astro';
 import { Clock } from 'lucide-react';
+import type { Props as BasicHeadProps } from '@/layouts/BasicLayout/BasicHead.astro';
 
 type PostData = CollectionEntry<'blog'>['data'];
 
 interface Props extends PostData {
 	readingTime: string;
+	metadata: Omit<BasicHeadProps, 'title' | 'description'>;
 }
 
-const { title, description, pubDate, updatedDate, heroImage, readingTime } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, readingTime, metadata } = Astro.props;
 ---
 
-<BasicLayout metadata={{ title: title, description: description }}>
+<BasicLayout metadata={{ ...metadata, title, description }}>
 	<Header />
 	<main class="px-4 py-6 sm:py-12">
 		<section class="mx-auto max-w-screen-md">
@@ -107,7 +109,7 @@ const { title, description, pubDate, updatedDate, heroImage, readingTime } = Ast
 
 	.has-highlighted {
 		.highlighted {
-			background-color: rgba(101, 117, 133, .26);
+			background-color: rgba(101, 117, 133, 0.26);
 		}
 	}
 </style>

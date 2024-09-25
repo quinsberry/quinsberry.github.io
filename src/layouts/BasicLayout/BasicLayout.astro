@@ -23,7 +23,7 @@ const gaId = ExternalScripts.googleAnalytics.id;
 <html lang={i18n.language} dir={i18n.direction}>
 	<head>
 		{gaId && <AstroAnalytics id={gaId} partytown={gaPartytown} />}
-		<BasicHead title={metadata.title} description={metadata.description} />
+		<BasicHead {...metadata} />
 		<ViewTransitions fallback="swap" />
 	</head>
 
