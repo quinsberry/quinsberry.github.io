@@ -20,7 +20,6 @@ export const webmanifestConfig: WebmanifestOptions = {
 
 	start_url: '/',
 
-	theme_color: UI.darkBackground,
 	background_color: UI.darkBackground,
 
 	display: 'standalone',
