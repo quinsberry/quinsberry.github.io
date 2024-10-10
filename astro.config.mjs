@@ -16,7 +16,7 @@ import {
 	readingTimeRemarkPlugin,
 	responsiveTablesRehypePlugin,
 } from './src/lib/markdown-plugins';
-import { ExternalScripts } from './src/consts';
+import { ExternalScripts, SITE } from './src/consts';
 import { robotsConfig } from './robots.config';
 import { webmanifestConfig } from './webmanifest.config';
 
@@ -26,8 +26,9 @@ const __dirname = path.dirname(__filename);
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://ekolesnyk.netlify.app',
+	site: SITE.website,
 	prefetch: true,
+	output: 'static',
 	integrations: [
 		mdx(),
 		sitemap(),
