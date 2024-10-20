@@ -5,6 +5,7 @@ import BasicLayout from './BasicLayout/BasicLayout.astro';
 import Header from '@/components/Header.astro';
 import { Clock } from 'lucide-react';
 import type { Props as BasicHeadProps } from '@/layouts/BasicLayout/BasicHead.astro';
+import Footer from '@/components/Footer.astro';
 
 type PostData = CollectionEntry<'blog'>['data'];
 
@@ -69,6 +70,7 @@ const { title, description, pubDate, updatedDate, heroImage, readingTime, metada
 			</article>
 		</section>
 	</main>
+	<Footer/>
 </BasicLayout>
 
 <style is:global>
