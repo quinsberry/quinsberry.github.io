@@ -4,7 +4,6 @@ description: 'Join me on my software engineering journey as I share insights, co
 pubDate: 'Oct 20 2024'
 ---
 
-## Welcome to My Software Engineering Blog
 
 For quite some time now, I’ve been wanting to create a space where I could share what I’ve learned—not just from the frontend world, but from software engineering as a whole. After gathering countless insights from different projects, I finally decided to make the leap and start this blog.
 
