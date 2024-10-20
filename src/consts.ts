@@ -1,5 +1,5 @@
 export const SITE = {
-	website: "https://quinsberry.github.io/",
+	website: "https://eugenekolesnyk.com/",
 	title: "Eugene's Blog",
 	description: 'A blog by Eugene Kolesnyk',
 	keywords: 'eugenekolesnyk, quinsberry, ekolesnyk',
